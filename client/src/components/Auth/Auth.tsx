@@ -8,7 +8,9 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 	const [name, setName] = useState("");
 	return (
 		<div className="auth-form">
-			<h1 className="auth-form__header">Awesome chat</h1>
+			<div className="auth-form__content">
+				<h1 className="auth-form__header">Awesome Chat</h1>
+			</div>
 			<div className="auth-form__content">
 				<label htmlFor="name">Type your name</label>
 				<input
