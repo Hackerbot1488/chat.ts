@@ -48,3 +48,6 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 		</div>
 	);
 };
+div>
+	);
+};
