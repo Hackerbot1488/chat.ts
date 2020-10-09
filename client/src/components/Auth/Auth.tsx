@@ -9,8 +9,8 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 	return (
 		<div className="auth-form">
 			<h1 className="auth-form__header">Awesome chat</h1>
-  <content className="auth-form__content">
-  <label for="name">Type your name</label>
+  <div className="auth-form__content">
+  <label htmlFor="name">Type your name</label>
 			<input
 				className="auth-form__input"
    id="name" 
@@ -18,9 +18,9 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 				value={name}
 				onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
 			/>
-  </content>
-  <content className="auth-form__content">
-  <label for="room">Type room number</label>
+  </div>
+  <div className="auth-form__content">
+  <label htmlFor="room">Type room number</label>
 			<input
 				className="auth-form__input"
    id="room" 
@@ -32,8 +32,8 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 					onAuth(room, name)
 				} */
 			/>
-  </content>
-  <content className="auth-form__content">
+  </div>
+  <div className="auth-form__content">
 			<button
 				className="auth-form__button"
 				onClick={() => room.trim() && name.trim() && onAuth(room, name)}
@@ -42,5 +42,8 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
 			</button>
   </content>
 		</div>
+	);
+};
+div>
 	);
 };
