@@ -1,0 +1,48 @@
+.message
+  display: flex
+  flex-direction: column
+  box-sizing: border-box
+  max-width: 250px
+  color: rgb(12,37,81)
+  &__text
+    max-width: 230px
+    word-wrap: break-word
+  &_admin
+    box-sizing: border-box
+    max-width: 100%
+    flex: 1
+    text-align: center
+  &_user
+    align-items: flex-end
+  &__username
+    position: absolute
+    top: 5px
+    right: 10px
+    max-width: 230px
+    text-overflow: ellipsis
+    font-size: 12px
+    font-weight: bold
+    &_left
+      left: 10px
+      right: 0
+  &__body
+    padding: 20px 10px 10px
+    border-radius: 4px
+    background-color: #0962ff
+    color: white
+    position: relative
+    box-sizing: border-box
+    max-width: 250px
+    width: fit-content
+    &_user
+      background-color: rgb(12,37,81)
+    &_admin
+      background-color: transparent
+      color: rgb(12,37,81)
+      width: 100%
+      max-width: none
+      &__text
+        text-overflow: clip
+        width: fit-content
+  &__date
+    width: fit-content
