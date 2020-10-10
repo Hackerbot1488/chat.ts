@@ -1,9 +1,10 @@
-import React, { KeyboardEvent, useRef, useState } from "react";
+import React, { KeyboardEvent, useContext, useRef, useState } from "react";
 import "./MessageField.sass";
 import { ReactComponent as SendImage } from "../../../images/send.svg";
+import { UserContext } from "../../../context";
 
 export const MessageField: React.FC<{}> = () => {
-	const msg = "";
+	const { socket } = useContext(UserContext);
 	const [message, setMessage] = useState("");
 	const ref = useRef<HTMLDivElement>(null);
 	function keyPressHandler(e: KeyboardEvent<HTMLDivElement>) {
@@ -13,7 +14,11 @@ export const MessageField: React.FC<{}> = () => {
 		}, 0);
 	}
 	function sendMessage() {
-		console.log(message);
+		if (message.trim()) {
+			socket?.emit("send msg", { message });
+			setMessage("");
+			ref.current!.innerText = "";
+		}
 	}
 	return (
 		<div className="message-field">
