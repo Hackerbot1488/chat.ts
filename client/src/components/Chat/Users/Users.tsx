@@ -1,32 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../context";
 import "./Users.sass";
-const users = [
-	"Mike hadson",
-	"Boddy Shmurda",
-	"Duck Duglas",
-	"Harry Potter",
-	"Joey Badass",
-	"Ruby Da Cherry",
-	"Mike hadson",
-	"Boddy Shmurda",
-	"Duck Duglas",
-	"Harry Potter",
-	"Joey Badass",
-	"Ruby Da Cherry",
-	"Mike hadson",
-	"Boddy Shmurda",
-	"Duck Duglas",
-	"Harry Potter",
-	"Joey Badass",
-	"Ruby Da Cherry",
-];
+export interface User {
+	name: string;
+	id: string;
+}
 export const Users: React.FC<{}> = () => {
+	const [users, setUsers] = useState<User[]>([]);
+	const { socket } = useContext(UserContext);
+	useEffect(() => {
+		socket?.on("send users", ({ usersList }: { usersList: User[] }) => {
+			console.log(usersList);
+			setUsers(usersList);
+		});
+	}, [socket]);
 	return (
 		<div className="users">
-			<h3 className="users__header">Users online: {users.length}</h3>
+			<h3 className="users__header">Users online: {users?.length}</h3>
 			<ul className="users-list">
-				{users.map((user) => {
-					return <li className="chat__user">{user}</li>;
+				{users?.map((user) => {
+					return (
+						<li className="chat__user" key={Math.random()}>
+							{user.name}
+						</li>
+					);
 				})}
 			</ul>
 		</div>
