@@ -1,0 +1,12 @@
+version: "2.4"
+services:
+  server:
+    image: server
+    ports:
+      - 1488:1488
+  client:
+    image: client
+    ports:
+      - 5000:5000
+    depends_on:
+      - server

@@ -1,0 +1,20 @@
+{
+  "name": "chat.ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "docker-compose run": "docker-compose up -d --remove-orphans",
+    "docker-compose stop": "docker-compose stop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackerbot1488/chat.ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hackerbot1488/chat.ts/issues"
+  },
+  "homepage": "https://github.com/Hackerbot1488/chat.ts#readme"
+}
