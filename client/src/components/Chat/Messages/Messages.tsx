@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Messages.sass";
 import { Message } from "./Message/Message";
 import { UserContext } from "../../../context";
@@ -18,32 +18,43 @@ export interface SocketMessage {
 export const Messages: React.FC<{}> = () => {
 	const { id, name, socket } = useContext(UserContext);
 	const [messages, setMessages] = useState<MessageFields[]>([]);
+	const ref = useRef<HTMLDivElement>(null);
+	const firstRender = useRef(true);
+	function scrollBottom() {
+		ref.current!.scrollTo(0, ref.current!.scrollHeight);
+	}
 	useEffect(() => {
-		socket?.on(
-			"new msg",
-			({ senderId, senderName, text, infoId }: SocketMessage) => {
-				console.log(`${id} ${name} ${senderId}`);
-				setMessages((prev: MessageFields[]) => [
-					...prev,
-					{
-						text,
-						owner: senderId ? (senderId === id ? "user" : "") : "admin",
-						name: senderName,
-						visible: infoId === id ? false : true,
-						uid: senderId,
-					},
-				]);
-			}
-		);
-	}, [id, name, socket]);
+		if (firstRender.current) {
+			socket?.on(
+				"new msg",
+				({ senderId, senderName, text, infoId }: SocketMessage) => {
+					setMessages((prev: MessageFields[]) => [
+						...prev,
+						{
+							text,
+							owner: senderId ? (senderId === id ? "user" : "") : "admin",
+							name: senderName,
+							visible: infoId === id ? false : true,
+							uid: senderId,
+						},
+					]);
+				}
+			);
+			firstRender.current = false;
+			console.log("first render");
+			return;
+		}
+		scrollBottom();
+	}, [id, name, socket, ref, firstRender, scrollBottom]);
 	return (
 		<div className="messages">
-			<div className="messages-container">
+			<div className="messages-container" ref={ref}>
 				{messages.map((message: MessageFields) => {
 					if (message.visible) {
 						return (
 							<div
 								key={Math.random()}
+								onClick={() => scrollBottom()}
 								className={`message-wrapper ${
 									message.owner === "admin"
 										? "message-wrapper_admin"
