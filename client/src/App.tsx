@@ -7,7 +7,7 @@ import { Chat } from "./components/Chat/Chat";
 let uid;
 export const App: React.FC<{}> = () => {
 	function auth(port: string, name: string) {
-		const temp = openSocket(`http://192.168.1.9:1488`);
+		const temp = openSocket(`https://limitless-castle-98054.herokuapp.com/`);
 		setSocket(temp);
 		setUsername(name);
 		uid = String(Math.random());
