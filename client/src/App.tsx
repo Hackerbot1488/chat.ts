@@ -7,9 +7,9 @@ import { Chat } from "./components/Chat/Chat";
 let uid;
 export const App: React.FC<{}> = () => {
 	function auth(port: string, name: string) {
-		const temp = openSocket(`https://limitless-castle-98054.herokuapp.com/`);
-		setSocket(temp);
-		setUsername(name);
+		const temp = openSocket(`http://localhost:1488`); // it will not work if your follow this link from your phone
+		setSocket(temp); // cause it have it's own localhost so you should type here
+		setUsername(name); // your computer adress
 		uid = String(Math.random());
 		setId(uid);
 		configSocket(temp, port, name, uid);
