@@ -41,7 +41,6 @@ export const Messages: React.FC<{}> = () => {
 				}
 			);
 			firstRender.current = false;
-			console.log("first render");
 			return;
 		}
 		scrollBottom();

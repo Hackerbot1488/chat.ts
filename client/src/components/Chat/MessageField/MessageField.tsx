@@ -10,7 +10,6 @@ export const MessageField: React.FC<{}> = () => {
 	function keyPressHandler(e: KeyboardEvent<HTMLDivElement>) {
 		setTimeout(() => {
 			setMessage(ref.current?.innerText || "");
-			console.log(ref.current?.innerText);
 		}, 0);
 	}
 	function sendMessage() {
