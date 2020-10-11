@@ -17,6 +17,7 @@
     position: relative
     box-sizing: border-box
     font-family: 'Sansita Swashed', cursive
+    word-wrap: break-word
     font-size: 16px
     max-width: 710px
     border-radius: 4px
@@ -50,3 +51,7 @@
       height: 30px
       &:hover
         fill: #0962ff
+@media (max-width: 1020px )
+  .message-field
+    &__input
+      max-width: calc(100vw - 55px)
