@@ -2,3 +2,6 @@
 **/yarn-error.log
 **/package-lock.json
 **/firebase
+**/functions
+**/firebase.json
+**.firebaserc
