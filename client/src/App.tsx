@@ -8,7 +8,6 @@ let uid;
 export const App: React.FC<{}> = () => {
 	function auth(port: string, name: string) {
 		const temp = openSocket(`http://192.168.1.9:1488`);
-		console.log(temp);
 		setSocket(temp);
 		setUsername(name);
 		uid = String(Math.random());
@@ -21,10 +20,6 @@ export const App: React.FC<{}> = () => {
 		name: string,
 		id: string
 	) {
-		/* tempSocket.on("get id", ({ idUser }: { idUser: string }) => {
-			console.log(`Set id ${idUser}`);
-			setId(idUser);
-		}); */
 		tempSocket.emit("new client", { room: port, name, id });
 	}
 	const [socket, setSocket] = useState<SocketIOClient.Socket>();

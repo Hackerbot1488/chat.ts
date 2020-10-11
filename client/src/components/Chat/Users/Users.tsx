@@ -10,7 +10,6 @@ export const Users: React.FC<{}> = () => {
 	const { socket } = useContext(UserContext);
 	useEffect(() => {
 		socket?.on("send users", ({ usersList }: { usersList: User[] }) => {
-			console.log(usersList);
 			setUsers(usersList);
 		});
 	}, [socket]);
