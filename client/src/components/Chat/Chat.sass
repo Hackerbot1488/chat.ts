@@ -6,8 +6,13 @@
   box-shadow: 0 0 40px rgba(0,0,0,0.1)
   background-color: #ffffff
   display: flex
-  overflow: hidden
+  /** overflow: hidden **/
+  box-sizing: border-box
 .messages-wrapper
   display: flex
   flex-direction: column
   flex: 1
+@media (max-width: 1020px)
+  .chat
+    margin: 0 10px
+    width: 100%

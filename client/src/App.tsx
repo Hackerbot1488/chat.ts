@@ -7,7 +7,7 @@ import { Chat } from "./components/Chat/Chat";
 let uid;
 export const App: React.FC<{}> = () => {
 	function auth(port: string, name: string) {
-		const temp = openSocket(`http://localhost:1488`);
+		const temp = openSocket(`http://192.168.1.9:1488`);
 		console.log(temp);
 		setSocket(temp);
 		setUsername(name);
