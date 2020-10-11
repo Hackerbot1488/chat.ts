@@ -4,5 +4,10 @@ export interface UserSocket extends SocketIO.Socket {
 	uid?: string;
 }
 export interface Rooms {
-	[key: string]: UserSocket[];
+	[key: string]: {
+		users: UserSocket[];
+		sockets: {
+			emit: (event: string, data: any) => void;
+		};
+	};
 }
