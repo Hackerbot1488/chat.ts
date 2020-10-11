@@ -31,9 +31,9 @@ export const Message: React.FC<MessageProps> = ({ message }) => {
 				)}
 				<span className="message__text">{message.text}</span>
 			</div>
-			{message.owner !== "admin" && (
+			{/* message.owner !== "admin" && (
 				<span className="message__date">{new Date().toLocaleString()}</span>
-			)}
+			) */}
 		</div>
 	);
 };
