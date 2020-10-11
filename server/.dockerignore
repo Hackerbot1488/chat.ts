@@ -1,0 +1,8 @@
+/interfaces
+/node_modules
+.gitignore
+Dockerfile
+package.json
+package-lock.json
+server.ts
+tsconfig.json

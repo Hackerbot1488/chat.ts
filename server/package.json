@@ -8,7 +8,9 @@
     "start": "concurrently \"npm run dev\" \"npm run client\"",
     "dev": "tsnd --respawn --transpile-only server.ts",
     "prod": "tsc && node ./build/server.js",
-    "client": "npm run start --prefix ../client"
+    "client": "npm run start --prefix ../client",
+    "docker build": "docker build -t server .",
+    "docker run": "docker run --rm --name server -p 1488:1488 -d server"
   },
   "keywords": [
     "typescript",
